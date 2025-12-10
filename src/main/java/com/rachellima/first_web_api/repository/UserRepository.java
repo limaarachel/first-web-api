@@ -1,5 +1,6 @@
 package com.rachellima.first_web_api.repository;
 
+import com.rachellima.first_web_api.handler.BusinessException;
 import com.rachellima.first_web_api.model.UserWeb;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,7 @@ import java.util.*;
 @Repository
 public class UserRepository {
     public void save(UserWeb user) {
+        if (user.getLogin() == null) throw new BusinessException("O campo nome é obrigatório");
         if (user.getId() == null)
             System.out.println("Save - Recebendo user na camada de repository");
         else

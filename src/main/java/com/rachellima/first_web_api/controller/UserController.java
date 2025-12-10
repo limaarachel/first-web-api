@@ -42,4 +42,8 @@ public class UserController {
     public void postUser(@RequestBody UserWeb user) {
          repository.save(user);
     }
+
+    public void putUser(@RequestBody UserWeb userWeb) {
+        repository.save(userWeb);
+    }
 }
